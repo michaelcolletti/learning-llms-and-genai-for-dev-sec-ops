@@ -25,7 +25,7 @@ USER python
 # Create a Python virtual environment for Poetry and install it
 # Define the version of Poetry to install (default is 1.5.1)
 
-ARG POETRY_VERSION=1.5.1
+ARG POETRY_VERSION=1.7.1
 ARG POETRY_HOME=/opt/poetry
 
 RUN python3 -m venv ${POETRY_HOME} && \
@@ -41,5 +41,5 @@ RUN echo "export PATH=$PATH:/opt/poetry/bin" >> ~/.bashrc
 RUN cat ~/.bashrc
 RUN echo $PATH
 
-COPY poetry.lock pyproject.toml ./
+COPY poetry.lock  pyproject.toml ./
 RUN $POETRY_HOME/bin/poetry install --no-root
